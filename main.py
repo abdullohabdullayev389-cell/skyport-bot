@@ -15,13 +15,15 @@ logging.basicConfig(level=logging.INFO)
 
 # ─── 1. BAZA VA MODELLAR SOZLAMASI ───
 DATABASE_URL = os.getenv("DATABASE_URL")
+BOT_TOKEN = os.getenv("BOT_TOKEN")  # <─── MANA SHU QATORNI QAYTA QO'SHAMIZ
+
 if DATABASE_URL:
     if DATABASE_URL.startswith("postgresql://"):
         DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://", 1)
-    # Havola oxiridagi mos kelmaydigan ?sslmode qismini olib tashlaymiz
     if "?" in DATABASE_URL:
         DATABASE_URL = DATABASE_URL.split("?")[0]
 
+engine = create_async_engine(DATABASE_URL, echo=False, connect_args={"ssl": True})
 # SSL ulanishni to'g'ridan-to'g'ri connect_args orqali xavfsiz yoqamiz
 engine = create_async_engine(DATABASE_URL, echo=False, connect_args={"ssl": True})
 
