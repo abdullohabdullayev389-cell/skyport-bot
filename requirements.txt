@@ -1,0 +1,4 @@
+aiogram==3.29.1
+sqlalchemy==2.0.51
+asyncpg==0.31.0
+aiohttp==3.11.11
