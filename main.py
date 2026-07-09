@@ -1,6 +1,6 @@
-import asyncio
-import logging
-import os
+import asynciofrom aiogram.client.default import DefaultBotProperties
+import loggingfrom aiogram.client.default import DefaultBotProperties
+import osfrom aiogram.client.default import DefaultBotProperties
 from aiohttp import web
 from aiogram import Bot, Dispatcher, Router, F
 from aiogram.filters import Command
@@ -165,7 +165,7 @@ async def start_web_server():
 async def main():
     async with engine.begin() as conn: await conn.run_sync(Base.metadata.create_all)
     await start_web_server()
-    bot = Bot(token=BOT_TOKEN, parse_mode="HTML")
+    bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
     dp = Dispatcher()
     dp.include_router(router)
     await dp.start_polling(bot)
