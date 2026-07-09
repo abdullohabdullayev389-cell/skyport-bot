@@ -2,7 +2,8 @@ import asyncio
 import logging
 import os
 from aiohttp import web
-from aiogram import Bot, Dispatcher, Router, F, Command
+from aiogram import Bot, Dispatcher, Router, F
+from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
