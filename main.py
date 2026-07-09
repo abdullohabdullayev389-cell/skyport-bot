@@ -1,6 +1,7 @@
-import asynciofrom aiogram.client.default import DefaultBotProperties
-import loggingfrom aiogram.client.default import DefaultBotProperties
-import osfrom aiogram.client.default import DefaultBotProperties
+import asyncio
+from aiogram.client.default import DefaultBotProperties
+import logging
+import os
 from aiohttp import web
 from aiogram import Bot, Dispatcher, Router, F
 from aiogram.filters import Command
